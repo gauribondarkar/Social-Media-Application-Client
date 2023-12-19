@@ -1,5 +1,5 @@
 import React from 'react'
-import {Link} from 'react-router-dom';
+import {Link, Navigate} from 'react-router-dom';
 import './Signup.scss';
 import { useState } from 'react';
 import { axiosClient } from '../../utils/axiosClient';
@@ -21,6 +21,7 @@ function Signup() {
       });
       
       console.log(result);
+      Navigate('/login');
     } catch (error) {
       console.log(error, "gauri");
     }
