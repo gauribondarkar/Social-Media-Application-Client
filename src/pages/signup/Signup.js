@@ -1,5 +1,5 @@
 import React from 'react'
-import {Link, Navigate} from 'react-router-dom';
+import {Link, useNavigate} from 'react-router-dom';
 import './Signup.scss';
 import { useState } from 'react';
 import { axiosClient } from '../../utils/axiosClient';
@@ -9,6 +9,7 @@ function Signup() {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const navigate = useNavigate();
 
   async function handleSubmit(e) {
     e.preventDefault();
@@ -21,7 +22,7 @@ function Signup() {
       });
       
       console.log(result);
-      Navigate('/login');
+      navigate('/login');
     } catch (error) {
       console.log(error, "gauri");
     }
